@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure E-Voting Platform</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <style>
+      :root {
+        --grad-1: #ff8c42;
+        --grad-2: #ffb703;
+        --material-ease: cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #fff8f0;
+        color: #0b2545;
+        margin: 0;
+        opacity: 0;
+        animation: fadeIn 0.6s var(--material-ease) forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* NAVBAR */
+      .navbar-brand {
+        font-weight: 700;
+        color: white !important;
+      }
+
+      .nav-link {
+        color: white !important;
+        position: relative;
+        text-decoration: none;
+      }
+
+      .nav-link::after {
+        content: "";
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--grad-1), var(--grad-2));
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        border-radius: 2px;
+        transition: 0.25s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* HERO */
+      .hero-section {
+        padding: 80px 20px;
+        text-align: center;
+        animation: floatHero 6s ease-in-out infinite;
+      }
+
+      @keyframes floatHero {
+        0% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(10px);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .hero-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+      }
+
+      .btn-cta {
+        background: linear-gradient(90deg, var(--grad-1), var(--grad-2));
+        padding: 12px 26px;
+        border-radius: 12px;
+        color: white;
+        border: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .btn-cta:hover {
+        transform: translateY(-4px);
+      }
+
+      /* CARDS */
+      .card-box {
+        background: white;
+        padding: 24px;
+        text-align: center;
+        border-radius: 14px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+      }
+
+      .card-box:hover {
+        transform: translateY(-7px);
+      }
+
+      /* SECTION REVEAL */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.8s var(--material-ease);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      footer {
+        background: #111827;
+        color: white;
+        padding: 16px;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      a.btn-cta {
+        text-decoration: none;
+      }
+
+      .nav-logo {
+        height: 38px;
+        width: 38px;
+        object-fit: contain;
+        border-radius: 8px;
+        background: white;
+        padding: 4px;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-logo:hover {
+        transform: rotate(8deg) scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm"
+      style="position: sticky; top: 0; z-index: 1000"
+    >
+      <div class="container">
+        <!-- LOGO + BRAND -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+          <img
+            src="/frontend/assests/images/logo.png"
+            alt="Logo"
+            class="nav-logo"
+          />
+          <span>Secure E-Voting Platform</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto gap-3 align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero-section">
+      <h1 class="hero-title">Empowering Democracy Through Technology</h1>
+      <p class="mt-3">
+        A secure, transparent and modern web-based voting solution for
+        institutions/Organisation.
+      </p>
+
+      <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+        <a href="/frontend/pages/login.html" class="btn-cta">Login</a>
+        <a
+          href="/frontend/pages/register.html"
+          class="btn-cta"
+          style="background: #ffa94d"
+          >Register</a
+        >
+        <button
+          class="btn-cta"
+          style="background: #ffb703"
+          onclick="openLiveResults()"
+        >
+          Live Vote Display
+        </button>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container mt-5 reveal">
+      <h2 class="text-center fw-bold mb-4">About Our Platform</h2>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="card-box">
+            <h5>🔐 Secure Login</h5>
+            <p>Modern and highly secure authentication system.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-box">
+            <h5>🗳 Real-Time Voting</h5>
+            <p>Votes update instantly with 100% transparency.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-box">
+            <h5>📢 Live Results</h5>
+            <p>View election results live anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container mt-5 mb-5 reveal">
+      <h2 class="text-center fw-bold mb-4">Contact Information</h2>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="card-box">
+            <h5>📍 Address</h5>
+            <p>XYZ Institute, Main Campus, New Delhi</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-box">
+            <h5>📞 Phone</h5>
+            <p>+91 98765 43210</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-box">
+            <h5>📧 Email</h5>
+            <p>support@evotingplatform.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>© 2025 Secure E-Voting System • Transparent • Fast • Secure</footer>
+
+    <!-- REVEAL SCRIPT -->
+    <script>
+      function revealSections() {
+        document.querySelectorAll(".reveal").forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add("active");
+          }
+        });
+      }
+      window.addEventListener("scroll", revealSections);
+      revealSections();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/frontend/js/utils.js"></script>
+    <script>
+      async function openLiveResults() {
+        try {
+          const res = await fetch("http://localhost:5500/api/public/elections");
+          const all = await res.json();
+
+          if (!Array.isArray(all)) {
+            alert("Unexpected response from server.");
+            return;
+          }
+
+          const active = all.find((e) => e.status === "active");
+
+          if (!active) {
+            alert("⚠ No active election available right now.");
+            return;
+          }
+
+          // Store election info
+          localStorage.setItem("publicElectionId", active._id);
+          localStorage.setItem("publicElectionName", active.title);
+
+          // Redirect
+          window.location.href = "/frontend/pages/publicDashboard.html";
+        } catch (err) {
+          console.error("Dashboard Error:", err);
+          alert("Cannot load elections!");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Secure E-Voting</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#ff8c42',
+                            yellow: '#ffb703',
+                            dark: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Custom Scrollbar for Textarea */
+        textarea::-webkit-scrollbar { width: 6px; }
+        textarea::-webkit-scrollbar-track { background: transparent; }
+        textarea::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+        
+        /* Focus styles for icons */
+        .input-group:focus-within i { color: #ff8c42; }
+        .input-group:focus-within input, 
+        .input-group:focus-within textarea {
+            border-color: #ff8c42;
+            box-shadow: 0 0 0 4px rgba(255, 140, 66, 0.1);
+        }
+    </style>
+</head>
+
+
+<body class="bg-brand-dark h-screen w-full flex items-center justify-center overflow-hidden relative">
+    
+
+    <div class="fixed inset-0 w-full h-full pointer-events-none">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
+        
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark/95 to-brand-dark/80"></div>
+
+        <div class="absolute top-10 left-10 w-72 h-72 bg-brand-orange/20 rounded-full mix-blend-screen filter blur-[80px] opacity-30 animate-blob"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-blue-600/20 rounded-full mix-blend-screen filter blur-[80px] opacity-30 animate-blob animation-delay-2000"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-md px-4 py-6">
+        
+        <a href="login.html" class="absolute -top-10 left-4 text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm animate-fade-up">
+            <i class="fas fa-arrow-left"></i> Back to Login
+        </a>
+
+        <div class="glass-card rounded-3xl p-8 animate-fade-up">
+            
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-white mb-1">Create Account</h2>
+                <p class="text-slate-400 text-xs uppercase tracking-widest">Join the Secure Network</p>
+            </div>
+
+            <form id="registerForm" class="space-y-4">
+
+                <div class="input-group">
+                    <label class="block text-slate-300 text-xs font-bold uppercase tracking-wide mb-1 ml-1">Full Name</label>
+                    <div class="relative flex items-center">
+                        <i class="fas fa-user absolute left-4 text-slate-500 transition-colors z-10 text-sm"></i>
+                        <input id="nameInput" type="text" placeholder="John Doe" 
+                            class="w-full bg-brand-dark/50 text-white pl-10 pr-4 py-3 rounded-xl border border-white/10 focus:outline-none transition-all placeholder:text-slate-600 text-sm">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="block text-slate-300 text-xs font-bold uppercase tracking-wide mb-1 ml-1">Mobile Number</label>
+                    <div class="relative flex items-center">
+                        <i class="fas fa-phone absolute left-4 text-slate-500 transition-colors z-10 text-sm"></i>
+                        <input id="mobileInput" type="tel" placeholder="9876543210" 
+                            class="w-full bg-brand-dark/50 text-white pl-10 pr-4 py-3 rounded-xl border border-white/10 focus:outline-none transition-all placeholder:text-slate-600 text-sm">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="block text-slate-300 text-xs font-bold uppercase tracking-wide mb-1 ml-1">Aadhaar Number</label>
+                    <div class="relative flex items-center">
+                        <i class="fas fa-fingerprint absolute left-4 text-slate-500 transition-colors z-10 text-sm"></i>
+                        <input id="aadhaarInput" type="text" placeholder="1234 5678 9012" 
+                            class="w-full bg-brand-dark/50 text-white pl-10 pr-4 py-3 rounded-xl border border-white/10 focus:outline-none transition-all placeholder:text-slate-600 text-sm tracking-wider">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="block text-slate-300 text-xs font-bold uppercase tracking-wide mb-1 ml-1">Address</label>
+                    <div class="relative">
+                        <i class="fas fa-map-marker-alt absolute left-4 top-3.5 text-slate-500 transition-colors z-10 text-sm"></i>
+                        <textarea id="addressInput" rows="2" placeholder="Full residential address..." 
+                            class="w-full bg-brand-dark/50 text-white pl-10 pr-4 py-3 rounded-xl border border-white/10 focus:outline-none transition-all placeholder:text-slate-600 text-sm resize-none"></textarea>
+                    </div>
+                </div>
+
+                <button id="registerBtn" type="submit" 
+                    class="w-full mt-2 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-yellow text-brand-dark font-bold hover:shadow-[0_0_20px_rgba(255,140,66,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                    Register Now <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-slate-400 text-sm">
+                    Already have an account? 
+                    <a href="login.html" class="text-brand-orange font-bold hover:text-white transition-colors ml-1 underline decoration-transparent hover:decoration-brand-orange">Login</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/frontend/js/auth.js"></script>
+    <script src="../js/utils.js"></script>
+
+    
+
+</body>
+</html>
